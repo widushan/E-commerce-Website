@@ -9,6 +9,7 @@ const Hero = () => {
         
         {/*Hero Left Side*/}
         <div className="w-full sm:w-1/2 flex items-center justify-center py-16 sm:py-0">
+
             <div className="text-[#222] bg-white/80 rounded-lg p-8 shadow-lg max-w-xl">
                 <div className="flex items-center gap-3 mb-10">
                     <span className="w-10 h-[2px] bg-indigo-500 rounded"></span>
@@ -26,7 +27,10 @@ const Hero = () => {
                 <p className="text-md text-gray-600 font-semibold mt-10">
                     # Shopping with <span className="text-indigo-600">TRENDZIDE</span>
                 </p>
+                <hr className="my-6 border-indigo-300" />
+                <img src={assets.mylogo} alt="Business Logo" className="mx-auto w-32 h-auto" />
             </div>
+
         </div>
         
 
