@@ -16,7 +16,7 @@ const Hero = () => {
                     <span className="font-semibold text-indigo-600 text-4xl tracking-wide">Welcome !</span>
                     <span className="w-10 h-[2px] bg-indigo-500 rounded"></span>
                 </div>
-                <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-10">
+                <h1 className="prata-regular text-4xl sm:text-5xl font-extrabold leading-tight mb-10">
                     Elevate Your Style <br /> 
                     <span className="text-indigo-500">With Our Latest Arrivals</span>
                 </h1>
