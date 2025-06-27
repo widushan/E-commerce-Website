@@ -9,7 +9,7 @@ import RelatedProducts from '../components/RelatedProducts'
 const Product = () => {
 
   const {productId} = useParams();
-  const {products, currency} = useContext(ShopContext);
+  const {products, currency, addToCart} = useContext(ShopContext);
   const [productData,setProductData] = useState(false);
   const [image,setImage] = useState('');
   const [size,setSize] = useState('');
@@ -79,7 +79,7 @@ const Product = () => {
             <div className='flex gap-2'>{productData.sizes.map((item,index)=>(<button onClick={()=>setSize(item)} key={index} className={`border py-2 px-4 bg-gray-100 ${size === item ? 'border-orange-500' : ''}`}>{item}</button>))}</div>
           </div>
 
-          <button className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
+          <button onClick={() => addToCart(productData._id, size)} className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
 
           <hr className='mt-8 sm:w-4/5' />
 
