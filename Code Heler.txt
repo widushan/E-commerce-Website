@@ -2,6 +2,13 @@ https://www.youtube.com/watch?v=7E6um7NGmeE&t=690s
 
 
 creating a react project using vite  -->  npm create vite@latest
-cd frontend
+
+cd frontend  --> npm run dev
 npm install
 npm install react-router-dom react-toastify
+
+
+cd backend  
+build server.js  and run npm init in terminal
+install dependencies  
+    npm i cors dotenv express jsonwebtoken mongoose multer nodemon razorpay stripe validator cloudinary bcrypt
