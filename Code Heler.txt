@@ -8,7 +8,15 @@ npm install
 npm install react-router-dom react-toastify
 
 
-cd backend  
+cd backend  -->  npm run server
 build server.js  and run npm init in terminal
 install dependencies  
     npm i cors dotenv express jsonwebtoken mongoose multer nodemon razorpay stripe validator cloudinary bcrypt
+
+
+
+
+MONGO DB Atlas
+username - pasinduTRENDZIDE
+password - n18Y7Od0w34NigRI
+mONGO db cONNECTION sTRING  - mongodb+srv://pasinduTRENDZIDE:n18Y7Od0w34NigRI@cluster0.m0wegli.mongodb.net
