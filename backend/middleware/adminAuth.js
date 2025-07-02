@@ -3,23 +3,25 @@ import 'dotenv/config';
 
 
 
-const adminAuth = async (req,res,next) => {
+const adminAuth = async (req, res, next) => {
     try {
-        const { token } = req.headers
+        const { token } = req.headers;
         if (!token) {
-            return res.json({sucess:false, message:"Not Authorized Login Again"})
+            return res.json({ success: false, message: "Not Authorized Login Again" });
         }
-        const token_decode = jwt.verify(token,process.env.JWT_SECRET);
-        if (!token_decode !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
-            return res.json({sucess:false, message:"Not Authorized Login Again"})
+        const token_decode = jwt.verify(token, process.env.JWT_SECRET);
+        if (
+            token_decode.email !== process.env.ADMIN_EMAIL ||
+            token_decode.password !== process.env.ADMIN_PASSWORD
+        ) {
+            return res.json({ success: false, message: "Not Authorized Login Again" });
         }
-        next()
+        next();
     } catch (error) {
-        console.log(error)
-        res.json({sucess:false, message:"Something went wrong"})
+        console.log(error);
+        res.json({ success: false, message: "Something went wrong" });
     }
-    
-}
+};
 
 export default adminAuth;
 
