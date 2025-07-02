@@ -31,3 +31,4 @@ npm run dev
 
 tailwind --  npm install -D tailwindcss postcss autoprefixer
          --  npx tailwindcss init -p
+         manually create the tailwind.config.js and postcss.config.js files
