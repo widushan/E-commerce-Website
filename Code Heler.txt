@@ -20,3 +20,14 @@ MONGO DB Atlas
 username - pasinduTRENDZIDE
 password - n18Y7Od0w34NigRI
 mONGO db cONNECTION sTRING  - mongodb+srv://pasinduTRENDZIDE:n18Y7Od0w34NigRI@cluster0.m0wegli.mongodb.net
+
+
+cd admin
+npm create vite@latest .
+npm install
+npm install axios react-router-dom react-toastify
+npm run dev
+
+
+tailwind --  npm install -D tailwindcss postcss autoprefixer
+         --  npx tailwindcss init -p
