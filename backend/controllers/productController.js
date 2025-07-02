@@ -61,13 +61,28 @@ const listProducts = async (req,res) => {
 
 // func for Remove Product
 const removeProduct = async (req,res) => {
-    
+    try {
+        const {id} = req.body;
+        await productModel.findByIdAndDelete(id);
+        res.json({sucess:true, message: "Product Removed"})
+    } catch (error) {
+        console.log(error)
+        res.json({sucess:false, message:error.message })
+    }
 }
 
 
 // func for Single Product Info
 const singleProduct = async (req,res) => {
-    
+    try {
+        const {productId} = req.body;
+        const product = await productModel.findById(productId);
+        res.json({sucess:true,product})
+    } catch (error) {
+        console.log(error)
+        res.json({sucess:false, message:error.message })
+    }
+
 }
 
 
