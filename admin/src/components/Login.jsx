@@ -1,6 +1,8 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { backendUrl } from '../App';
+import axios from 'axios';
+
 
 const Login = () => {
 
@@ -10,7 +12,11 @@ const Login = () => {
     const onSubmitHandler = async (e) => {
         try {
             e.preventDefault();
-            
+            const response = await axios.post(backendUrl + '/api/user/admin' , {
+                email,
+                password
+            })
+            console.log(response);
         } catch (error) {
             
         }
