@@ -1,6 +1,8 @@
 https://www.youtube.com/watch?v=7E6um7NGmeE&t=690s
 
 
+npm -i react-toastify
+
 creating a react project using vite  -->  npm create vite@latest
 
 cd frontend  --> npm run dev
