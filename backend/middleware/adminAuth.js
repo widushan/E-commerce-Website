@@ -4,6 +4,9 @@ import 'dotenv/config';
 
 
 const adminAuth = async (req, res, next) => {
+
+    console.log("Headers received:", req.headers);
+    
     try {
         const { token } = req.headers;
         if (!token) {

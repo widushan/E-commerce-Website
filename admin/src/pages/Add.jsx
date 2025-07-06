@@ -6,7 +6,7 @@ import { backendUrl } from '../App'
 
 
 
-const Add = (token) => {
+const Add = ({token}) => {
 
   const [image1,setImage1] = useState(false);
   const [image2,setImage2] = useState(false);
@@ -17,7 +17,7 @@ const Add = (token) => {
   const [price , setPrice] = useState('');
   const [description , setDescription] = useState('');
   const [category , setCategory] = useState('Men');
-  const [subcategory , setSubcategory] = useState('Topwear');
+  const [subCategory , setSubCategory] = useState('Topwear');
   const [sizes , setSizes] = useState([]);
   const [bestseller , setBestseller] = useState(false);
 
@@ -30,13 +30,15 @@ const Add = (token) => {
       formData.append("description",description)
       formData.append("price",price)
       formData.append("category",category)
-      formData.append("subcategory",subcategory)
+      formData.append("subCategory",subCategory)
       formData.append("sizes",JSON.stringify(sizes))
       formData.append("bestseller",bestseller)
       image1 && formData.append("image1",image1)
       image2 && formData.append("image2",image2)
       image3 && formData.append("image3",image3)
       image4 && formData.append("image4",image4)
+
+      
 
       const response = await axios.post(backendUrl + '/api/product/add' , formData, {headers:{token}})
       
@@ -100,7 +102,7 @@ const Add = (token) => {
 
         <div>
           <p className='mb-2'>Product Subcategory</p>
-          <select onChange={(e)=>setSubcategory(e.target.value)} className='w-full px-3 py-2'>
+          <select onChange={(e)=>setSubCategory(e.target.value)} className='w-full px-3 py-2'>
             <option value="Topwear">Topwear</option>
             <option value="Bottomwear">Bottomwear</option>
             <option value="Winterwear">Winterwear</option>
