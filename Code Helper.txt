@@ -9,6 +9,12 @@ cd frontend  --> npm run dev
 npm install
 npm install react-router-dom react-toastify
 
+connect frontend with admin panel add products
+in terminal install dependencies
+cd frontend 
+npm i axios
+npm run dev
+
 
 cd backend  -->  npm run server
 build server.js  and run npm init in terminal
