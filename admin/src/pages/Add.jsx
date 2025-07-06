@@ -6,7 +6,7 @@ import { backendUrl } from '../App'
 
 
 
-const Add = () => {
+const Add = (token) => {
 
   const [image1,setImage1] = useState(false);
   const [image2,setImage2] = useState(false);
@@ -38,7 +38,7 @@ const Add = () => {
       image3 && formData.append("image3",image3)
       image4 && formData.append("image4",image4)
 
-      const response = await axios.post(backendUrl + '/api/product/add' , formData)
+      const response = await axios.post(backendUrl + '/api/product/add' , formData, {headers:{token}})
       
       console.log(response.data);
 

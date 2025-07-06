@@ -44,3 +44,9 @@ npm install -D tailwindcss@3.4.1
 ls .\node_modules\tailwindcss    --  You should see a lib folder with a cli.js file inside.
 ls .\node_modules\.bin    --    You should see tailwindcss and tailwindcss.cmd.
 npx tailwindcss init -p
+
+
+
+
+ADMIN_EMAIL = "admintrendzide@gmail.com"
+ADMIN_PASSWORD = "admin@7788"
