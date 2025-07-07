@@ -16,23 +16,23 @@ const loginUser = async (req,res)  => {
         // checking user already  exists or not
         const user = await userModel.findOne({email});
         if (!user) {
-            return res.status(400).json({message:"User does not exists"});
+            return res.status(400).json({success: false, message:"User does not exists"});
         }
         // checking user password
         const isMatch = await bcrypt.compare(password,user.password);
         if (isMatch) {
             const token = createToken(user._id)
-            res.json({sucess:true,token});
+            res.json({success: true, token});
         }
         else{
-            return res.status(400).json({message:"Invalid Credentials"});
+            return res.status(400).json({success: false, message:"Invalid Credentials"});
         }
 
         
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({message:"Something went wrong"});
+        res.status(500).json({success: false, message:"Something went wrong"});
     }
 }
 
@@ -45,15 +45,15 @@ const registerUser = async (req,res)  => {
         // checking user already  exists or not
         const exists = await userModel.findOne({email});
         if (exists) {
-            return res.status(400).json({message:"User already exists"});
+            return res.status(400).json({success: false, message:"User already exists"});
         }
 
         // validating email format and strong password
         if (!validator.isEmail(email)) {
-            return res.status(400).json({message:"Please Enter a Valid Email"});
+            return res.status(400).json({success: false, message:"Please Enter a Valid Email"});
         }
         if (password.length < 8) {
-            return res.status(400).json({message:"Please Enter a Strong Password"});
+            return res.status(400).json({success: false, message:"Please Enter a Strong Password"});
         }
 
         // hashing user password
@@ -63,16 +63,14 @@ const registerUser = async (req,res)  => {
         // creating new user
         const newUser = new userModel({name,email,password:hashedPassword});
         const user = await newUser.save();
-        res.status(200).json({message:"User Created Successfully"});
-
+        
         const token = createToken(user._id)
-
-        res.json({sucess:true,token});
+        res.json({success: true, message:"User Created Successfully", token});
 
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({message:"Something went wrong"});
+        res.status(500).json({success: false, message:"Something went wrong"});
     }
 }
 

@@ -16,6 +16,7 @@ const ShopContextProvider = (props) => {
     const [showSearch, setShowSearch] = useState(false);
     const [cartItems, setCartItems] = useState({});
     const [products, setProducts] = useState([]);
+    const [token,setToken] = useState(localStorage.getItem('token') || '');
     const navigate = useNavigate();
 
 
@@ -99,10 +100,23 @@ const ShopContextProvider = (props) => {
             console.log('Error fetching products:', error)
             toast.error(error.response?.data?.message || error.message || 'Failed to fetch products')
         }
+    }
+
+    const logout = () => {
+        setToken('')
+        localStorage.removeItem('token')
+        toast.success('Logged out successfully!')
+        navigate('/')
     } 
 
     useEffect(()=>{
         getProductsData()
+    },[])
+
+    useEffect(()=>{
+        if (!token && localStorage.getItem('token')){
+            setToken(localStorage.getItem('token'))
+        }
     },[])
 
 
@@ -114,7 +128,8 @@ const ShopContextProvider = (props) => {
         getCartCount, updateQuantity,
         getCartAmount,
         navigate,
-        backendUrl
+        backendUrl,
+        setToken, token, logout
     }
 
     return (
