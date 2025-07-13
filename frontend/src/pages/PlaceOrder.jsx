@@ -73,6 +73,7 @@ const PlaceOrder = () => {
           }
           break;
         case 'visamaster':
+          // Original logic: create order before payment, use orderId in Stripe session URLs
           const responseVisaMaster = await axios.post(backendUrl + '/api/order/visamaster', orderData, {headers:{token}})
           if (responseVisaMaster.data.success) {
             const {session_url} = responseVisaMaster.data

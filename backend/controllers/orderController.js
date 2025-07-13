@@ -50,7 +50,6 @@ const placeOrderVisamaster = async (req, res) => {
             items,
             amount,
             address,
-            
             paymentMethod: 'VisaMaster',
             payment: false,
             date: Date.now()
@@ -85,19 +84,32 @@ const placeOrderVisamaster = async (req, res) => {
             cancel_url: `${origin}/verify?success=false&orderId=${newOrder._id}`,
             line_items,
             mode: 'payment',
-          })
-          
-          res.json({success: true, session_url: session.url});
-          
-
+        })
+        res.json({success: true, session_url: session.url});
     } catch (error) {
         console.log(error)
         res.json({success:false, message:error.message})
     }
 }
 
-
-// 
+// Verify Visamaster
+const verifyVisamaster = async (req, res) => {
+    const { orderId, success, userId } = req.body;
+    try {
+      if (success === "true") {
+        await orderModel.findByIdAndUpdate(orderId, { payment: true });
+        await userModel.findByIdAndUpdate(userId, { cartData: {} });
+        res.json({success:true})
+      } else {
+            await orderModel.findByIdAndDelete(orderId)
+            res.json({success:false})
+      }
+    } catch (error) {
+        console.log(error)
+        res.json({success:false, message:error.message})
+    }
+};
+  
 
 
 
@@ -151,5 +163,6 @@ export {
     placeOrderVisamaster,
     allOrders,
     userOrders,
-    updateStatus
+    updateStatus,
+    verifyVisamaster
 }
