@@ -72,6 +72,16 @@ const PlaceOrder = () => {
             toast.error(response.data.message)
           }
           break;
+        case 'visamaster':
+          const responseVisaMaster = await axios.post(backendUrl + '/api/order/visamaster', orderData, {headers:{token}})
+          if (responseVisaMaster.data.success) {
+            const {session_url} = responseVisaMaster.data
+            window.location.replace(session_url)
+          } else {
+            toast.error(responseVisaMaster.data.message)
+          }
+          
+          break;
         default:
           break;
       }
