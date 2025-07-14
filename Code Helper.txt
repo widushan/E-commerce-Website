@@ -56,3 +56,12 @@ npx tailwindcss init -p
 
 ADMIN_EMAIL = "admintrendzide@gmail.com"
 ADMIN_PASSWORD = "admin@7788"
+
+
+
+
+
+
+deploy on vercel
+ source code ->
+https://github.com/GreatStackDev/notes/blob/main/Vercel_JSON_Config_For_MERN.md
