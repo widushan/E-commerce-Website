@@ -65,3 +65,12 @@ ADMIN_PASSWORD = "admin@7788"
 deploy on vercel
  source code ->
 https://github.com/GreatStackDev/notes/blob/main/Vercel_JSON_Config_For_MERN.md
+
+
+
+
+deployed sucessfully  -->
+
+https://trendzide-admin.vercel.app/
+https://trendzide-frontend.vercel.app/
+https://trendzide-backend.vercel.app/
