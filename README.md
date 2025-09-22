@@ -19,8 +19,7 @@ A modern, full-stack e-commerce platform for fashion and lifestyle products. Bui
 - **Frontend:** React, Vite, Tailwind CSS
 - **Backend:** Node.js, Express
 - **Database:** MongoDB
-- **Cloud:** Cloudinary
-- **Payments:** Stripe, Razorpay
+
 
 ---
 
