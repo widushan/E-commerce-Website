@@ -11,7 +11,7 @@ A modern, full-stack e-commerce platform for fashion and lifestyle products. Bui
 - Order management
 - Responsive design
 - Image upload (Cloudinary)
-- Payment integration (Stripe, Razorpay)
+
 
 ---
 
