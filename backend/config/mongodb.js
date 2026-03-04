@@ -9,7 +9,9 @@ const connectDB = async () => {
     }
 
     try {
-        const conn = await mongoose.connect(`${process.env.MONGODB_URL}/e-commerce`);
+        const conn = await mongoose.connect(`${process.env.MONGODB_URL}/e-commerce`, {
+            serverSelectionTimeoutMS: 5000
+        });
         isConnected = conn.connections[0].readyState === 1;
         console.log("DB Connected");
     } catch (error) {
